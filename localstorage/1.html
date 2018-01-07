@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		li{
+			list-style: none;
+			display: inline-block;
+			margin-left: 20px;
+		}
+		.color{
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+</body>
+</html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+
+	var textlist = [
+
+		{id:'1',name:'必修1'},
+		{id:'2',name:'必修2'},
+		{id:'3',name:'必修3'},
+		{id:'4',name:'必修4'},
+		{id:'5',name:'必修5'},
+		{id:'6',name:'必修6'},
+		{id:'7',name:'必修7'}
+	]
+	var uid = localStorage.getItem('textbooklist') || 1
+	$.each(textlist,function (i,v) {
+		$('ul').append('<li id='+v.id+' class="'+(v.id == uid?'color':'')+'">'+v.name+'</li>')
+	})
+
+	$(document).on('click','li',function (argument) {
+		var submaterial = $(this).attr('id');
+		localStorage.setItem('textbooklist',submaterial);
+		$(this).addClass('color').siblings().removeClass('color');
+	})
+
+
+
+
+
+
+</script>
